@@ -1,0 +1,55 @@
+Is there an association of family history of alcoholism to the rate (# drinks/week) of alcohol consumption for people who have never exhibited alcohol abuse or dependence?
+Hypothesis: Despite having no history or alcohol abuse or dependence, having a familial history with alcoholism increases rate of alcohol consumption.
+Needed data:
+Alcohol consumption rate
+Have had at least 1 drink / 313-313 S2AQ1
+Drink at least 12 drinks in 12 months / 314-314 S2AQ2
+Drink at least 1 drink in 12 months / 315-315 S2AQ3
+Drinking status / 316-316  CONSUMER
+How often drank alcohol in last 12 months / 397-398 S2AQ8A
+Number of drinks of alcohol on days when drinking / 399-400  S2AQ8B
+Largest number of drinks 12 months / 401-402  S2AQ8C
+How often drank large number / 403-404  S2AQ8D
+How often drank 5+ / 405-406  S2AQ8E
+How often drank 4+ / 407-408  S2AQ9
+Family member was an alcoholic
+Only considering relatives of previous generation or before. Not siblings or children.
+Alcoholic dad / 653-653   S2DQ1
+Alcoholic mom / 654-654  S2DQ2
+Alcoholic uncle / 679-679, 689-689  S2DQ7C2  S2DQ9C2
+Alcoholic aunt / 684-684, 694-694  S2DQ8C2   S2DQ10C2
+Alcoholic grandpa / 695-695, 697-697  S2DQ11  S2DQ13A
+Alcoholic grandma / 696-696, 698-698  S2DQ12  S2DQ13B
+Does this hold true for people who are not currently alcoholics?
+Alcohol abuse/dependence in last 12 months / 3648-3648  ALCABDEP12DX
+Alcohol abuse/dependence prior to last 12 months / 3649-3649  ALCABDEPP12DX
+Correcting factors:
+Income (correct primary data set if possible)
+179-185  S1Q10A
+186-187  S1Q10B
+188-188  S1F10A
+189-195  S1Q11A
+196-197  S1Q11B
+198-198  S1F11A
+199-205  S1Q12A
+206-207  S1Q12B
+208-208  S1F12A
+Age (correct primary data set if possible)
+75-78  75-78
+Ethnicity (might need to account for ethnicities that drink less)
+81-81 until 89-90
+Sex (not sure if this matters)
+79-79   SEX
+Secondary question:
+Does the closeness of the relationship affect this correlation? (Parent vs more distant relation, present vs. absent alcoholic parent)
+Hypothesis: A close relationship with someone with alcohol dependence is more likely to result in an increased rate of alcohol consumption.
+Focus on those with biological parents since only 3% didn’t live with a  biological parent
+Needed data:
+Parental association growing up (Whether one or both parents was present during upbringing): 
+Lived with at least 1 biological parent before age 18. / 94-94  S1Q2A
+Biological father ever lived in household before respondent was 18. / 95-95  S1Q2B
+Did biological or adoptive parents get divorced before 18? / 101-101   S1Q2D
+Age when biological parents stopped living together / 102-103  S1Q2E
+Ever lived with a step-parent before age 18 / 105-105  S1Q2G
+Age when started living with step parent / 106-107  S1Q2H
+Can use previous information on family stuff for rest.
