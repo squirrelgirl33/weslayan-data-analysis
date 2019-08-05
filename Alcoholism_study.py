@@ -13,7 +13,12 @@ import scipy.stats as sst
 import seaborn as sb
 import matplotlib.pyplot as plt #seaborn is dependent upon this to create graphs#Create univariate graphs to show center and spread.
 
-
+###
+#This is necessary for the github code since the csv file is too large to upload
+import zipfile
+with zipfile.ZipFile("NESARC Data.zip", 'r') as zip_ref:
+    zip_ref.extractall()
+###
 
 nesarc = pd.read_csv('NESARC Data.csv', low_memory=False)
 
@@ -166,6 +171,10 @@ print(p3.sort_index())
 print("Percentage of alcohol consumption frequency for those with NO family history of alcoholism:")
 p4 = subaafam4['S2AQ8A'].value_counts(sort=False, dropna=False, normalize=True)
 print(p4.sort_index())
+
+
+###
+
 
 #For Lesson 3, I need to re-do one thing, and then re-sort some data.
 #First, I need to re-do the grouping for the abstainers vs. did not answer.
@@ -401,7 +410,7 @@ def FAM(row):
         return 0
 
 subaa1["FAM"] = subaa1.apply(lambda row: FAM(row), axis=1)
-subaa12 = subaa1[["FAM", "S2DQ1", "S2DQ2", "S2DQ7C2", "S2DQ8C2", "S2DQ9C2", "S2DQ10C2", "S2DQ11", "S2DQ12", "S2DQ13A", "S2DQ13B"]]
+subaa12 = subaa1[["FAM", "S2DQ1", "S2DQ2", "S2DQ7C2", "S2DQ8C2", "S2DQ9C2", "S2DQ10C2", "S2DQ11", "S2DQ12", "S2DQ13A", "S2DQ13B"]] #look at only these sections
 subaa12.head(n=25)
 
 c11=subaa1["FAM"].value_counts(sort=False, dropna=False)
@@ -410,23 +419,22 @@ print("Family history of alcohol abuse or dependence--1 is yes, 0 is no")
 print(c11)
 
 subaa1["FAM"] = subaa1["FAM"].astype('category')
-sb.countplot(x="FAM", data=subaa1)
+sb.countplot(x="FAM", data=subaa1) #just a bar graph of whether previous generation has history of alcohol abuse
 plt.xlabel("Presence of alcohol abuse or dependence in previous generation")
 plt.title("Alcoholism in family history for individuals with no personal history of alcohol abuse or dependence")
 
 #Will do drinks/month for those that have/do not have alcoholic family history.
-sb.distplot(subaafam2["DRINKMO"].dropna(), kde=False);
+sb.distplot(subaafam2["DRINKMO"].dropna(), kde=False); #histogram of drinks/month
 plt.xlabel("Number of Drinks Per Month")
 plt.title("Estimated # of Drinks/Month for those with Family History of Alcoholism")
 
 
-sb.distplot(subaafam4["DRINKMO"].dropna(), kde=False);
+sb.distplot(subaafam4["DRINKMO"].dropna(), kde=False); #histogram of drinks/month
 plt.xlabel("Number of Drinks Per Month")
 plt.title("Estimated # of Drinks/Month for those with NO Family History of Alcoholism")
 
 #Will do closeness of relative for those with family history
 #Might only post one or two to the actual blog, though.
-
 
 
 
@@ -450,11 +458,11 @@ subaa1["FAM2"]=subaa1["FAM"]
 
 subaa1["FAM2"]=subaa1["FAM2"].cat.rename_categories(["No Family History", "Family History"])
 
-sb.factorplot(x='FAM2', y='DRINKMO', data=subaa1, kind="bar")
+sb.factorplot(x='FAM2', y='DRINKMO', data=subaa1, kind="bar") #Bar graph of drinks/month
 plt.xlabel('Family Alcoholism')
 plt.ylabel('Average of Drinks/Month')
 
-sb.countplot(x="DRINKMO10", hue="FAM2", data=subaa1)
+sb.countplot(x="DRINKMO10", hue="FAM2", data=subaa1) #distribution of people in the percentiles, but in counts, not percentages
 plt.xlabel("Percentiles of Alcohol Consumption")
 plt.ylabel("Counts of individuals in the Percentiles")
 plt.xticks(rotation = 45)
@@ -512,7 +520,7 @@ print(c12.sort_index())
 subaafam2["AAFAM2"]=subaafam2["AAFAM2"].astype("category")
 #subaafam2["AAFAM2"]=subaafam2["AAFAM2"].cat.rename_categories(["Single Alcoholic Parent", "Two Alcoholic Parents", "One Alcoholic Extended Relative", "Multiple Alcoholic Extended Relatives", "One Alcoholic Parent and at least one alcoholic extended relative", "Both Alcoholic parents and at least one extended relative"])
 
-sb.factorplot(x='AAFAM2', y='DRINKMO', data=subaafam2, kind="bar")
+sb.factorplot(x='AAFAM2', y='DRINKMO', data=subaafam2, kind="bar") #bar graph of drinks/month for people in different categories of alcoholic family history
 plt.xlabel('Family Alcoholism')
 plt.ylabel('Proportion of Drinks/Month')
 
